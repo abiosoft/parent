@@ -5,6 +5,7 @@ import (
 	"os"
 	"os/exec"
 	"os/signal"
+	"strings"
 )
 
 func main() {
@@ -62,7 +63,7 @@ func expandArgs(args []string) []string {
 		// in the rare case that this errors
 		// the original arg is still used.
 		if err == nil {
-			arg = string(e)
+			arg = strings.TrimSpace(string(e))
 		}
 		expanded = append(expanded, arg)
 	}
